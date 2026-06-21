@@ -1,0 +1,25 @@
+<div class="mermaid">
+graph TD
+    %% Entitas
+    Pasien([Pasien / Pengunjung])
+    Admin([Petugas Pendaftaran])
+    JKN([Sistem Mobile JKN])
+
+    %% Sistem Pusat
+    Sistem((Sistem Informasi Pendaftaran<br>Rawat Jalan Berbasis Web))
+
+    %% Aliran Data Pasien
+    Pasien -->|1. Data Diri & Akun| Sistem
+    Pasien -->|2. Data Booking & Poli| Sistem
+    Sistem -->|3. Bukti Booking & No Antrean| Pasien
+
+    %% Aliran Data Admin
+    Sistem -->|4. Daftar Data Booking Pasien| Admin
+    Admin -->|5. Verifikasi & Update Jadwal| Sistem
+    Sistem -->|6. Laporan Pendaftaran Harian| Admin
+
+    %% Aliran Data JKN
+    Pasien -.->|Deep Linking| JKN
+    Sistem <=>|7. Validasi Data Kepesertaan| JKN
+</div>
+</div>
